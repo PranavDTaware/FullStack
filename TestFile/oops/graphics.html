@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+
+            class Point{
+                 constructor(x, y){
+
+                        //Encapsulation
+                        this.x=x;
+                        this.y=y;
+                    }
+                    show(){
+                        console.log(`Point: {X=${this.x}, Y=${this.y}}`);
+                    }
+
+                    getX(){
+                        return this.x;
+                    }
+                    getY (){
+                        return this.y;
+                    }
+                    setX(xx){
+                        this.x=xx;
+                    }
+                    setY (yy){
+                        this.y=yy;
+                    }
+                }
+
+            class Shape{
+                constructor(thickness, color){
+                    this.color=color;
+                    this.thickness=thickness;
+                }
+                show(){
+                    console.log("Thickness:"+ this.thickness+ "Color="+ this.color);
+                    
+                }
+            }
+            class Line extends Shape{
+                constructor(startpoint, endpoint, thickness, color ){
+                    super (thickness, color);
+                    this.startpoint=new Point(startpoint.x,startpoint.y);
+                    this.endpoint=new Point(endpoint.x, endpoint.y);
+                    this.thickness=thickness;
+                    this.color=color;
+                }
+
+                show(){
+                    super.show();
+                    console.log("Line:");
+                    this.startpoint.show();
+                    this.endpoint.show();
+                    console.log("Thickness:"+ this.thickness+ ", Color: " + this.color);
+                }
+        }
+
+            class Rectangle{
+                constructor(startpoint, width, height){
+                    this.startpoint= new Point(startpoint.x, startpoint.y);
+                    this.width=width;
+                    this.height=height;
+                }
+                show(){
+                    console.log("Rectangle:");
+                    this.startpoint.show();
+                    console.log("Width:"+ this.width+ ", Height:" +this.height);
+                }
+
+            }
+            class Circle{
+
+            }
+            class Eclipse{
+
+            }
+
+            let line1= new Line(new Point(10, 40), new Point(60, 200), "1px", "black");
+            line1.show();
+            let recatangle= new Rectangle(new Point(42, 23), "10px", "50px");
+            recatangle.show();
+        </script>
+    </body>
+</html>
